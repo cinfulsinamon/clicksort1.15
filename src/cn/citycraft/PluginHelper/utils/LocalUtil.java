@@ -7,11 +7,9 @@ import java.util.logging.Logger;
 import me.desht.clicksort.ClickSortPlugin;
 import me.desht.dhutils.JARUtil;
 
-import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.material.SpawnEgg;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class LocalUtil {
@@ -47,16 +45,11 @@ public class LocalUtil {
         return aname;
     }
     
-    @SuppressWarnings("deprecation")
     public static final String getItemType(final ItemStack i) {
         String name = i.getType().name();
         String dura = "";
-        if (i.getType().name().endsWith("_EGG")) {
-            name = ((SpawnEgg) i.getData()).getSpawnedType().name();
-        } else {
-            final int dur = i.getDurability();
-            dura = (i.getMaxStackSize() != 1 && dur != 0) ? Integer.toString(dur) : "";
-        }
+        final int dur = i.getDurability();
+        dura = (i.getMaxStackSize() != 1 && dur != 0) ? Integer.toString(dur) : "";
         return (name + (dura.isEmpty() ? "" : "-" + dura)).toUpperCase();
     }
 

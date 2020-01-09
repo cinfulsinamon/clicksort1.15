@@ -23,7 +23,7 @@ import org.bukkit.inventory.ItemStack;
 
 public enum SortingMethod
 {
-    ID, NAME, GROUP, VALUE;
+	NAME, GROUP, VALUE;
     
     public SortingMethod next()
     {
@@ -44,23 +44,18 @@ public enum SortingMethod
         }
     }
     
-    @SuppressWarnings("deprecation")
     public String makeSortPrefix(ItemStack stack)
     {
         ClickSortPlugin plugin;
         switch (this)
         {
-            case ID:
-                // noinspection deprecation
-                return String.format("%04d", stack.getType().getId());
             case NAME:
                 String name = ItemNames.lookup(stack);
                 return name == null ? null : name.replaceAll("\u00a7.", "");
             case GROUP:
                 plugin = ClickSortPlugin.getInstance();
                 String grp = plugin.getItemGrouping().getGroup(stack);
-                // noinspection deprecation
-                return String.format("%s-%04d", grp, stack.getType().getId());
+                return String.format("%s-%04d", grp, stack.getType());
             case VALUE:
                 plugin = ClickSortPlugin.getInstance();
                 double value = plugin.getItemValues().getValue(stack);
