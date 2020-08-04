@@ -55,7 +55,7 @@ public enum SortingMethod
             case GROUP:
                 plugin = ClickSortPlugin.getInstance();
                 String grp = plugin.getItemGrouping().getGroup(stack);
-                return String.format("%s-%04d", grp, stack.getType());
+                return String.format("%s-%s", grp, stack.getType());
             case VALUE:
                 plugin = ClickSortPlugin.getInstance();
                 double value = plugin.getItemValues().getValue(stack);
