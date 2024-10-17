@@ -1,5 +1,7 @@
 # ClickSort
 
+### This fork was created while this plugin was outdated for newer versions. It has since been updated, and this repo has been rebased with the original clearing my commits. Please download from the original repo!
+
 ClickSort is a Bukkit plugin which makes it very easy for players to sort their inventories (player/chest/dispenser) with a single or double click of the mouse. Players can sort by item ID, item name, switch between single- and double-clicking, or disable sorting entirely, all on a per-player basis and without needing any commands; it's all done with mouse clicks in inventory windows.
 
 ## Installation
